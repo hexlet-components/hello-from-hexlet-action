@@ -10,7 +10,6 @@ steps:
     id: checkout
     uses: actions/checkout@v4
 
-  - name: Run my Action
-    id: run-action
+  - name: Print Hello from Hexlet
     uses: hexlet-components/hello-from-hexlet-action@release
 ```
