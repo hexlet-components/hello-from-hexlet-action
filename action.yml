@@ -1,6 +1,6 @@
-name: 'The name of your action here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: 'hello-from-hexlet-action'
+description: 'Simple hello-world action'
+author: 'Hexlet'
 
 # Define your inputs here.
 runs:
