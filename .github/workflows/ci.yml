@@ -62,3 +62,10 @@ jobs:
       - name: Print Output
         id: output
         run: echo "${{ steps.test-action.outputs.time }}"
+
+      - name: Hello
+        run: echo "Hello from Hexlet"
+
+      - name: Hello
+        id: Hexlet greetings
+        uses: : hexlet-components/hello-from-hexlet-action@release
