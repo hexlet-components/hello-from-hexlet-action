@@ -6,6 +6,7 @@ updates:
       interval: weekly
     groups:
       actions-minor:
+        patterns: ["*"]
         update-types:
           - minor
           - patch
@@ -17,10 +18,12 @@ updates:
     groups:
       npm-development:
         dependency-type: development
+        patterns: ["*"]
         update-types:
           - minor
           - patch
       npm-production:
         dependency-type: production
+        patterns: ["*"]
         update-types:
           - patch
