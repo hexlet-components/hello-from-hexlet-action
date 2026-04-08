@@ -1,29 +1,21 @@
 version: 2
 updates:
-  - package-ecosystem: github-actions
-    directory: /
+  - package-ecosystem: "github-actions"
+    directory: "/"
     schedule:
-      interval: weekly
+      interval: "monthly"
+    open-pull-requests-limit: 1
+    labels: ["dependencies", "automated"]
     groups:
-      actions-minor:
+      github-actions-all:
         patterns: ["*"]
-        update-types:
-          - minor
-          - patch
 
-  - package-ecosystem: npm
-    directory: /
+  - package-ecosystem: "npm"
+    directory: "/"
     schedule:
-      interval: weekly
+      interval: "monthly"
+    open-pull-requests-limit: 1
+    labels: ["dependencies", "automated"]
     groups:
-      npm-development:
-        dependency-type: development
+      npm-all:
         patterns: ["*"]
-        update-types:
-          - minor
-          - patch
-      npm-production:
-        dependency-type: production
-        patterns: ["*"]
-        update-types:
-          - patch
