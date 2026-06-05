@@ -1,10 +1,10 @@
-const core = require('@actions/core');
+import * as core from '@actions/core';
 
 /**
  * The main function for the action.
  * @returns {Promise<void>} Resolves when the action is complete.
  */
-async function run() {
+export async function run() {
   try {
     core.info(`Hello from Hexlet!`);
   } catch (error) {
@@ -12,7 +12,3 @@ async function run() {
     core.setFailed(error.message);
   }
 }
-
-module.exports = {
-  run,
-};

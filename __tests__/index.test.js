@@ -5,10 +5,11 @@
 // vitest globals (describe, it, expect, vi, beforeEach) are enabled in
 // vitest.config.js
 
-const main = require('../src/main');
-
-// Mock the action's entrypoint
-const runMock = vi.spyOn(main, 'run').mockImplementation(() => {});
+// Mock the action's main module (ESM namespaces are read-only, so vi.mock
+// instead of vi.spyOn)
+vi.mock('../src/main.js', () => ({
+  run: vi.fn(),
+}));
 
 describe('index', () => {
   beforeEach(() => {
@@ -16,8 +17,10 @@ describe('index', () => {
   });
 
   it('calls run when imported', async () => {
-    require('../src/index');
+    const { run } = await import('../src/main.js');
 
-    expect(runMock).toHaveBeenCalled();
+    await import('../src/index.js');
+
+    expect(run).toHaveBeenCalled();
   });
 });

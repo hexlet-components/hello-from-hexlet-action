@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "author": "",
   "private": true,
+  "type": "module",
   "homepage": "https://github.com/actions/javascript-action#readme",
   "repository": {
     "type": "git",
