@@ -1,4 +1,4 @@
-const core = require('@actions/core')
+const core = require('@actions/core');
 
 /**
  * The main function for the action.
@@ -6,13 +6,13 @@ const core = require('@actions/core')
  */
 async function run() {
   try {
-    core.info(`Hello from Hexlet!`)
+    core.info(`Hello from Hexlet!`);
   } catch (error) {
     // Fail the workflow run if an error occurs
-    core.setFailed(error.message)
+    core.setFailed(error.message);
   }
 }
 
 module.exports = {
-  run
-}
+  run,
+};
