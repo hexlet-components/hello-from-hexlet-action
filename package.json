@@ -38,12 +38,12 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "^3.0.0"
+    "@actions/core": "^3.0.1"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.2.4",
-    "@vercel/ncc": "^0.38.4",
-    "@vitest/coverage-v8": "^4.0.15",
+    "@biomejs/biome": "^2.5.2",
+    "@vercel/ncc": "^0.44.1",
+    "@vitest/coverage-v8": "^4.1.9",
     "make-coverage-badge": "^1.2.0",
     "vitest": "^4.0.15"
   }
