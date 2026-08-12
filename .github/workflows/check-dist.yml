@@ -30,20 +30,24 @@ jobs:
         id: checkout
         uses: actions/checkout@v7
 
+      # pnpm ставится до setup-node: тот с cache: pnpm ищет уже существующий
+      # бинарь, чтобы вычислить путь к store.
+      - uses: pnpm/action-setup@v6
+
       - name: Setup Node.js
         id: setup-node
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version-file: .node-version
-          cache: npm
+          cache: pnpm
 
       - name: Install Dependencies
         id: install
-        run: npm ci
+        run: make install
 
       - name: Build dist/ Directory
         id: build
-        run: npm run bundle
+        run: make bundle
 
       # This will fail the workflow if the `dist/` directory is different than
       # expected.
