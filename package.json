@@ -25,26 +25,29 @@
     "node": ">=26.0"
   },
   "scripts": {
-    "bundle": "npm run format:write && npm run package",
+    "bundle": "pnpm run format && pnpm run package",
     "ci-test": "vitest run",
-    "coverage": "npx make-coverage-badge --output-path ./badges/coverage.svg",
-    "format:write": "biome format --write .",
-    "format:check": "biome format .",
-    "lint": "biome check .",
-    "package": "npx ncc build src/index.js -o dist --source-map --license licenses.txt",
-    "package:watch": "npm run package -- --watch",
+    "coverage": "make-coverage-badge --output-path ./badges/coverage.svg",
+    "format:check": "oxfmt --ignore-path=.oxfmtignore --check .",
+    "lint": "oxlint --config=.oxlintrc.json .",
+    "package": "ncc build src/index.js -o dist --source-map --license licenses.txt",
+    "package:watch": "pnpm run package --watch",
     "test": "vitest run",
-    "all": "npm run format:write && npm run lint && npm run test && npm run coverage && npm run package"
+    "all": "pnpm run format && pnpm run lint && pnpm run test && pnpm run coverage && pnpm run package",
+    "lint:fix": "oxfmt --ignore-path=.oxfmtignore . && oxlint --config=.oxlintrc.json --fix .",
+    "format": "oxfmt --ignore-path=.oxfmtignore ."
   },
   "license": "MIT",
   "dependencies": {
     "@actions/core": "^3.0.0"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.2.4",
     "@vercel/ncc": "^0.38.4",
     "@vitest/coverage-v8": "^4.0.15",
     "make-coverage-badge": "^1.2.0",
+    "oxfmt": "^0.63.0",
+    "oxlint": "^1.78.0",
     "vitest": "^4.0.15"
-  }
+  },
+  "packageManager": "pnpm@11.20.0"
 }
