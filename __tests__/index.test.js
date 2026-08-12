@@ -2,17 +2,25 @@
  * Unit tests for the action's entrypoint, src/index.js
  */
 
-const { run } = require('../src/main')
+// vitest globals (describe, it, expect, vi, beforeEach) are enabled in
+// vitest.config.js
 
-// Mock the action's entrypoint
-jest.mock('../src/main', () => ({
-  run: jest.fn()
-}))
+// Mock the action's main module (ESM namespaces are read-only, so vi.mock
+// instead of vi.spyOn)
+vi.mock("../src/main.js", () => ({
+  run: vi.fn(),
+}));
 
-describe('index', () => {
-  it('calls run when imported', async () => {
-    require('../src/index')
+describe("index", () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+  });
 
-    expect(run).toHaveBeenCalled()
-  })
-})
+  it("calls run when imported", async () => {
+    const { run } = await import("../src/main.js");
+
+    await import("../src/index.js");
+
+    expect(run).toHaveBeenCalled();
+  });
+});

@@ -28,22 +28,26 @@ jobs:
     steps:
       - name: Checkout
         id: checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
+
+      # pnpm ставится до setup-node: тот с cache: pnpm ищет уже существующий
+      # бинарь, чтобы вычислить путь к store.
+      - uses: pnpm/action-setup@v6
 
       - name: Setup Node.js
         id: setup-node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version-file: .node-version
-          cache: npm
+          cache: pnpm
 
       - name: Install Dependencies
         id: install
-        run: npm ci
+        run: make install
 
       - name: Build dist/ Directory
         id: build
-        run: npm run bundle
+        run: make bundle
 
       # This will fail the workflow if the `dist/` directory is different than
       # expected.
@@ -66,7 +70,7 @@ jobs:
       - if: ${{ failure() && steps.diff.outcome == 'failure' }}
         name: Upload Artifact
         id: upload
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: dist
           path: dist/
