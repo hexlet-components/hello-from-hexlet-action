@@ -42,7 +42,7 @@
     "@actions/core": "^3.0.0"
   },
   "devDependencies": {
-    "@vercel/ncc": "^0.38.4",
+    "@vercel/ncc": "^0.44.1",
     "@vitest/coverage-v8": "^4.0.15",
     "make-coverage-badge": "^1.2.0",
     "oxfmt": "^0.63.0",
