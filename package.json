@@ -30,7 +30,7 @@
     "coverage": "make-coverage-badge --output-path ./badges/coverage.svg",
     "format:check": "oxfmt --ignore-path=.oxfmtignore --check .",
     "lint": "oxlint --config=.oxlintrc.json .",
-    "package": "ncc build src/index.js -o dist --source-map --license licenses.txt",
+    "package": "ncc build src/index.js -o dist --license licenses.txt",
     "package:watch": "pnpm run package --watch",
     "test": "vitest run",
     "all": "pnpm run format && pnpm run lint && pnpm run test && pnpm run coverage && pnpm run package",
