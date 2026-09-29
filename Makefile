@@ -1,5 +1,5 @@
 install:
-	npm i
+	pnpm install --frozen-lockfile
 
 lint:
 	pnpm --silent run lint
