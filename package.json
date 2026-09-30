@@ -28,14 +28,14 @@
     "bundle": "pnpm run format && pnpm run package",
     "ci-test": "vitest run",
     "coverage": "make-coverage-badge --output-path ./badges/coverage.svg",
-    "format:check": "oxfmt --ignore-path=.oxfmtignore --check .",
+    "format:check": "oxfmt --check .",
     "lint": "oxlint .",
     "package": "ncc build src/index.js -o dist --license licenses.txt",
     "package:watch": "pnpm run package --watch",
     "test": "vitest run",
     "all": "pnpm run format && pnpm run lint && pnpm run test && pnpm run coverage && pnpm run package",
-    "lint:fix": "oxfmt --ignore-path=.oxfmtignore . && oxlint --fix .",
-    "format": "oxfmt --ignore-path=.oxfmtignore ."
+    "lint:fix": "oxfmt . && oxlint --fix .",
+    "format": "oxfmt ."
   },
   "license": "MIT",
   "dependencies": {
