@@ -8,11 +8,13 @@ import "package://github.com/jdx/hk/releases/download/v2.8.1/hk@2.8.1#/Builtins.
 local fast = new Mapping<String, Step> {
   ["format"] {
     glob = List("**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx", "**/*.mjs", "**/*.cjs")
+    exclude = List("dist/**")
     check = "pnpm exec oxfmt --check --no-error-on-unmatched-pattern {{files}}"
     fix = "pnpm exec oxfmt --no-error-on-unmatched-pattern {{files}}"
   }
   ["lint"] {
     glob = List("**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx", "**/*.mjs", "**/*.cjs")
+    exclude = List("dist/**")
     check = "pnpm exec oxlint {{files}}"
   }
   ["rumdl"] = Builtins.rumdl
