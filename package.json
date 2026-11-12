@@ -45,8 +45,8 @@
     "@vercel/ncc": "^0.45.0",
     "@vitest/coverage-v8": "^4.1.12",
     "make-coverage-badge": "^1.2.0",
-    "oxfmt": "^0.74.0",
-    "oxlint": "^1.89.0",
+    "oxfmt": "^0.76.0",
+    "oxlint": "^1.91.0",
     "vitest": "^4.1.12"
   },
   "packageManager": "pnpm@12.6.0"
